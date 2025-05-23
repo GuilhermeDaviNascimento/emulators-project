@@ -1,0 +1,17 @@
+[
+  {
+    "name": "GBA",
+    "patch": "/game-boy.png",
+    "url": "./game-boy"
+  },
+  {
+    "name": "SNES",
+    "patch": "/SNES.png",
+    "url": "./snes"
+  },
+  {
+    "name": "Mega Drive",
+    "patch": "/mega-drive.svg",
+    "url": "./megadrive"
+  }
+]

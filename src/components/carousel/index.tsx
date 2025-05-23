@@ -1,30 +1,34 @@
-import * as React from "react"
-
-import { Card, CardContent } from "@/components/ui/card"
+import * as React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from '@/components/ui/carousel';
+import Image from 'next/image';
+import Link from 'next/link';
+import { EmulatorsProps } from '../../../types/emulators';
 
-export function CarouselOrientation() {
+export function CarouselOrientation({ list }: EmulatorsProps) {
   return (
     <Carousel
       opts={{
-        align: "start",
+        align: 'start',
       }}
       orientation="vertical"
       className="w-full max-w-xs"
     >
-      <CarouselContent className="-mt-1 h-[200px]">
-        {Array.from({ length: 5 }).map((_, index) => (
+      <CarouselContent className="-mt-1">
+        {list.map((element, index) => (
           <CarouselItem key={index} className="pt-1 md:basis-1/2">
             <div className="p-1">
               <Card>
                 <CardContent className="flex items-center justify-center p-6">
-                  <span className="text-3xl font-semibold">{index + 1}</span>
+                  <Link href={element.url}>
+                    <Image src={element.patch} alt={element.name} width={300} height={300} />
+                  </Link>
                 </CardContent>
               </Card>
             </div>
@@ -34,5 +38,5 @@ export function CarouselOrientation() {
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>
-  )
+  );
 }
